@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blackjack Bible AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            felt: '#0f4c3a', // Keep base for fallback
+            'felt-dark': '#051a14',
+            'felt-light': '#1b634e',
+            gold: '#d4af37',
+            'gold-light': '#f3e5ab',
+            'gold-dark': '#8a6e18',
+            'card-red': '#d32f2f',
+            'card-black': '#1a1a1a',
+            'casino-green': '#135c4b',
+          },
+          backgroundImage: {
+            'felt-gradient': 'radial-gradient(circle at center, #135c4b 0%, #051a14 100%)',
+            'gold-gradient': 'linear-gradient(135deg, #f3e5ab 0%, #d4af37 50%, #8a6e18 100%)',
+            'card-gradient': 'linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%)',
+          },
+          boxShadow: {
+            'gold-glow': '0 0 15px rgba(212, 175, 55, 0.4)',
+            'card-float': '0 10px 20px rgba(0,0,0,0.5)',
+            'inner-felt': 'inset 0 0 100px rgba(0,0,0,0.8)',
+          },
+          animation: {
+            'deal-card': 'deal-card 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
+            'fade-in': 'fade-in 0.8s ease-out forwards',
+            'slide-up': 'slide-up 0.6s ease-out forwards',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'shimmer': 'shimmer 2s linear infinite',
+          },
+          keyframes: {
+            'deal-card': {
+              '0%': { transform: 'translateY(-120vh) rotate(-180deg) scale(0.5)', opacity: '0' },
+              '100%': { transform: 'translateY(0) rotate(0deg) scale(1)', opacity: '1' },
+            },
+            'fade-in': {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            'slide-up': {
+              '0%': { transform: 'translateY(40px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            },
+            shimmer: {
+              '0%': { backgroundPosition: '-1000px 0' },
+              '100%': { backgroundPosition: '1000px 0' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #051a14;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+
+    .transform-style-3d {
+      transform-style: preserve-3d;
+    }
+
+    .backface-hidden {
+      backface-visibility: hidden;
+    }
+
+    .card-shadow {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+    }
+
+    .c-shadow-gold {
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>

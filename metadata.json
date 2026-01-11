@@ -1,0 +1,5 @@
+{
+  "name": "Blackjack Bible AI",
+  "description": "An interactive, AI-powered blackjack strategy assistant that helps you make the best decision based on your cards and the dealer's upcard.",
+  "requestFramePermissions": []
+}
