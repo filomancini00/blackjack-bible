@@ -5,6 +5,7 @@ import PlayingCard from './components/PlayingCard';
 import CardPicker from './components/CardPicker';
 import AdviceDisplay from './components/AdviceDisplay';
 import Logo from './components/Logo';
+import LegalDisclaimer from './components/LegalDisclaimer';
 import { getBasicStrategyAdvice } from './services/rulesService';
 import { RefreshCw, Zap, Shield, ChevronDown } from 'lucide-react';
 
@@ -202,10 +203,13 @@ const App: React.FC = () => {
           )}
         </section>
 
+
         {/* Result Display */}
         <div id="results" className="scroll-mt-32 pb-10">
           <AdviceDisplay advice={advice} loading={loading} onReset={resetGame} />
         </div>
+
+        <LegalDisclaimer />
 
       </main>
 
