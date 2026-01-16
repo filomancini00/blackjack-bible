@@ -18,31 +18,45 @@
             serif: ['Playfair Display', 'serif'],
           },
           colors: {
-            felt: '#0f4c3a', // Keep base for fallback
-            'felt-dark': '#051a14',
-            'felt-light': '#1b634e',
-            gold: '#d4af37',
-            'gold-light': '#f3e5ab',
-            'gold-dark': '#8a6e18',
+            // Premium casino color palette
+            'casino-dark': '#0a0118',
+            'casino-purple': '#1a0b2e',
+            'casino-blue': '#16213e',
+            'neon-cyan': '#00f5ff',
+            'neon-pink': '#ff006e',
+            'neon-purple': '#b537f2',
+            gold: '#ffd700',
+            'gold-dark': '#b8860b',
+            // Playing card colors
             'card-red': '#d32f2f',
             'card-black': '#1a1a1a',
-            'casino-green': '#135c4b',
           },
           backgroundImage: {
-            'felt-gradient': 'radial-gradient(circle at center, #135c4b 0%, #051a14 100%)',
-            'gold-gradient': 'linear-gradient(135deg, #f3e5ab 0%, #d4af37 50%, #8a6e18 100%)',
-            'card-gradient': 'linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%)',
+            // Premium purple casino gradient
+            'casino-gradient': 'radial-gradient(ellipse at top, #2d1b69 0%, #1a0b2e 40%, #0a0118 100%)',
+            // Enhanced metallic gold
+            'gold-gradient': 'linear-gradient(135deg, #ffd700 0%, #ffed4e 25%, #ffd700 50%, #b8860b 75%, #8b6914 100%)',
+            // Neon cyan glow
+            'neon-gradient': 'linear-gradient(135deg, #00f5ff 0%, #00d4ff 50%, #0099ff 100%)',
+            // Purple neon
+            'purple-gradient': 'linear-gradient(135deg, #b537f2 0%, #8b2fc9 50%, #6b1fa0 100%)',
           },
           boxShadow: {
-            'gold-glow': '0 0 15px rgba(212, 175, 55, 0.4)',
-            'card-float': '0 10px 20px rgba(0,0,0,0.5)',
-            'inner-felt': 'inset 0 0 100px rgba(0,0,0,0.8)',
+            // Neon glow effects
+            'neon-cyan': '0 0 20px rgba(0, 245, 255, 0.6), 0 0 40px rgba(0, 245, 255, 0.3), 0 0 60px rgba(0, 245, 255, 0.1)',
+            'neon-purple': '0 0 20px rgba(181, 55, 242, 0.6), 0 0 40px rgba(181, 55, 242, 0.3)',
+            'neon-pink': '0 0 20px rgba(255, 0, 110, 0.6), 0 0 40px rgba(255, 0, 110, 0.3)',
+            // Enhanced gold glow
+            'gold-glow': '0 0 30px rgba(255, 215, 0, 0.7), 0 0 60px rgba(255, 215, 0, 0.4), 0 0 90px rgba(255, 215, 0, 0.2)',
+            // Premium depth shadows
+            'card-float': '0 20px 40px rgba(0, 0, 0, 0.8), 0 8px 16px rgba(0, 0, 0, 0.6)',
+            'premium-depth': '0 30px 60px rgba(0, 0, 0, 0.9), 0 10px 20px rgba(0, 0, 0, 0.7)',
+            'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+          },
+          backdropBlur: {
+            'xs': '2px',
           },
           animation: {
-            'deal-card': 'deal-card 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
-            'fade-in': 'fade-in 0.8s ease-out forwards',
-            'slide-up': 'slide-up 0.6s ease-out forwards',
-            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             'shimmer': 'shimmer 2s linear infinite',
           },
           keyframes: {

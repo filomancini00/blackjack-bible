@@ -4,6 +4,7 @@ import { Card, SelectionMode, AIAdvice } from './types';
 import PlayingCard from './components/PlayingCard';
 import CardPicker from './components/CardPicker';
 import AdviceDisplay from './components/AdviceDisplay';
+import Logo from './components/Logo';
 import { getBasicStrategyAdvice } from './services/rulesService';
 import { RefreshCw, Zap, Shield, ChevronDown } from 'lucide-react';
 
@@ -32,8 +33,8 @@ const App: React.FC = () => {
         if (activeSlotIndex >= 0 && activeSlotIndex < newCards.length) {
           newCards[activeSlotIndex] = card;
         } else {
-          // Limit to 3 cards max
-          if (newCards.length < 3) newCards.push(card);
+          // Limit to 10 cards max
+          if (newCards.length < 10) newCards.push(card);
         }
         return newCards;
       });
@@ -86,33 +87,42 @@ const App: React.FC = () => {
   const canAsk = dealerCard && playerCards.length >= 2;
 
   return (
-    <div className="min-h-screen pb-20 bg-felt-gradient text-white font-sans selection:bg-gold selection:text-black overflow-x-hidden">
-      {/* Background Texture */}
-      <div className="fixed inset-0 opacity-40 bg-[url('https://www.transparenttextures.com/patterns/felt.png')] pointer-events-none mix-blend-overlay" />
+    <div className="min-h-screen pb-20 bg-casino-gradient text-white font-sans selection:bg-neon-cyan selection:text-black overflow-x-hidden">
+      {/* Animated Background Particles */}
+      <div className="fixed inset-0 opacity-20 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-purple/20 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-neon-cyan/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
+      </div>
 
       {/* Header */}
-      <header className="p-6 flex items-center justify-between border-b border-white/5 bg-black/20 backdrop-blur-md sticky top-0 z-30 shadow-lg">
-        <div className="flex items-center gap-3">
-          <div className="bg-gold-gradient text-black p-2 rounded shadow-gold-glow font-bold text-xl border border-white/20">BJ</div>
-          <h1 className="text-2xl font-serif font-bold tracking-tight text-white drop-shadow-md">
-            Blackjack<span className="text-gold">Bible</span>.ai
+      <header className="p-6 flex items-center justify-between border-b border-neon-cyan/20 bg-black/40 backdrop-blur-2xl sticky top-0 z-30 shadow-premium-depth">
+        <div className="flex items-center gap-5">
+          <Logo size="lg" />
+          <h1 className="text-3xl font-serif font-bold tracking-tight">
+            <span className="bg-gradient-to-r from-white via-neon-cyan to-white bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(0,245,255,0.5)]">
+              Blackjack
+            </span>
+            <span className="bg-gold-gradient bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(255,215,0,0.5)]">
+              Bible
+            </span>
+            <span className="text-neon-cyan/70 text-xl">.ai</span>
           </h1>
         </div>
         <button
           onClick={resetGame}
-          className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-colors text-slate-300 hover:text-white hover:rotate-180 duration-500 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+          className="p-3 bg-gradient-to-br from-neon-cyan/10 to-neon-purple/10 rounded-full hover:from-neon-cyan/20 hover:to-neon-purple/20 transition-all duration-300 text-neon-cyan hover:text-white hover:rotate-180 hover:shadow-neon-cyan border border-neon-cyan/30 hover:border-neon-cyan/60 hover:scale-110"
           title="Reset Table"
         >
-          <RefreshCw size={20} />
+          <RefreshCw size={22} />
         </button>
       </header>
 
       <main className="max-w-xl mx-auto p-6 space-y-12 mt-8 relative z-10">
 
         {/* Dealer Section */}
-        <section className="flex flex-col items-center space-y-6 animate-slide-up" style={{ animationDelay: '0.1s' }}>
-          <div className="flex items-center gap-2 text-gold/90 uppercase tracking-[0.2em] text-xs font-bold shadow-black drop-shadow-md bg-black/30 px-4 py-1.5 rounded-full border border-white/5 backdrop-blur-sm">
-            <Shield size={14} className="text-gold" /> Dealer's Upcard
+        <section className="flex flex-col items-center space-y-6">
+          <div className="flex items-center gap-2 text-neon-cyan uppercase tracking-[0.2em] text-xs font-bold bg-gradient-to-r from-casino-purple/60 to-casino-blue/60 px-5 py-2 rounded-full border border-neon-cyan/40 backdrop-blur-xl shadow-neon-cyan">
+            <Shield size={14} className="text-neon-cyan" /> Dealer's Upcard
           </div>
           <div className="flex justify-center w-full perspective-1000">
             <PlayingCard
@@ -126,8 +136,8 @@ const App: React.FC = () => {
         </section>
 
         {/* Player Section */}
-        <section className="flex flex-col items-center space-y-6 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-          <div className="flex items-center gap-2 text-gold/90 uppercase tracking-[0.2em] text-xs font-bold drop-shadow-md bg-black/30 px-4 py-1.5 rounded-full border border-white/5 backdrop-blur-sm">
+        <section className="flex flex-col items-center space-y-6">
+          <div className="flex items-center gap-2 text-gold uppercase tracking-[0.2em] text-xs font-bold bg-gradient-to-r from-casino-purple/60 to-casino-blue/60 px-5 py-2 rounded-full border border-gold/40 backdrop-blur-xl shadow-gold-glow">
             <Zap size={14} className="text-gold" /> Your Hand
           </div>
           <div className="flex flex-wrap justify-center gap-6 sm:gap-8 w-full min-h-[190px] perspective-1000">
@@ -140,7 +150,7 @@ const App: React.FC = () => {
                 />
               </div>
             ))}
-            {playerCards.length < 3 && (
+            {playerCards.length < 10 && (
               <PlayingCard
                 isPlaceholder
                 label={playerCards.length === 0 ? "First Card" : playerCards.length === 1 ? "Second Card" : "Hit Card"}
@@ -152,7 +162,7 @@ const App: React.FC = () => {
           {playerCards.length >= 2 && (
             <button
               onClick={() => setPlayerCards([])}
-              className="text-[10px] text-slate-500 hover:text-red-400 transition-colors uppercase tracking-widest font-semibold opacity-60 hover:opacity-100 mt-2"
+              className="text-[10px] text-neon-cyan/60 hover:text-neon-pink transition-colors uppercase tracking-widest font-semibold opacity-60 hover:opacity-100 mt-2 hover:drop-shadow-[0_0_8px_rgba(255,0,110,0.6)]"
             >
               Clear Hand
             </button>
@@ -160,11 +170,11 @@ const App: React.FC = () => {
         </section>
 
         {/* Action Button */}
-        <section className="pt-8 animate-slide-up" style={{ animationDelay: '0.3s' }}>
+        <section className="pt-8">
           {!advice && (
             <div className="relative group">
               {/* Button Glow Effect */}
-              <div className={`absolute -inset-1 bg-gradient-to-r from-gold via-yellow-300 to-gold rounded-2xl blur opacity-20 group-hover:opacity-60 transition duration-1000 group-hover:duration-200 ${canAsk ? 'animate-pulse' : 'hidden'}`}></div>
+              <div className={`absolute -inset-1 bg-neon-gradient rounded-2xl blur-lg opacity-30 group-hover:opacity-70 transition duration-500 ${canAsk ? 'animate-glow-pulse' : 'hidden'}`}></div>
 
               <button
                 disabled={!canAsk || loading}

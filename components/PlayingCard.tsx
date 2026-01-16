@@ -46,16 +46,16 @@ const PlayingCard: React.FC<PlayingCardProps> = ({
         onClick={onClick}
         className={`
           ${baseClasses} 
-          border-dashed border-gold/30 bg-white/5 
-          hover:bg-white/10 hover:border-gold hover:shadow-gold-glow
-          cursor-pointer group backdrop-blur-sm
-          ${selected ? 'ring-2 ring-gold border-gold bg-gold/10' : ''}
+          border-dashed border-neon-cyan/30 bg-casino-purple/20 
+          hover:bg-casino-purple/40 hover:border-neon-cyan hover:shadow-neon-cyan
+          cursor-pointer group backdrop-blur-xl
+          ${selected ? 'ring-2 ring-neon-cyan border-neon-cyan bg-neon-cyan/10' : ''}
         `}
       >
         <div className="transform transition-transform duration-300 group-hover:scale-110 flex flex-col items-center">
-          <span className="text-white/20 group-hover:text-gold font-light text-4xl transition-colors mb-2">+</span>
+          <span className="text-neon-cyan/30 group-hover:text-neon-cyan font-light text-4xl transition-colors mb-2">+</span>
           {label && (
-            <span className="text-white/40 group-hover:text-gold text-[0.6em] uppercase tracking-[0.2em] font-bold transition-colors text-center px-1">
+            <span className="text-neon-cyan/50 group-hover:text-neon-cyan text-[0.6em] uppercase tracking-[0.2em] font-bold transition-colors text-center px-1">
               {label}
             </span>
           )}
@@ -72,13 +72,12 @@ const PlayingCard: React.FC<PlayingCardProps> = ({
         onClick={onClick}
         className={`
             ${baseClasses} 
-            bg-card-gradient border-slate-300
-            cursor-pointer shadow-card-float
+            bg-white border-slate-200
+            cursor-pointer shadow-premium-depth
             ${selected
-            ? 'ring-4 ring-gold ring-offset-2 ring-offset-felt-dark -translate-y-6 z-20 shadow-[0_20px_50px_rgba(0,0,0,0.5)]'
-            : 'hover:-translate-y-3 hover:shadow-2xl hover:rotate-1 z-10'
+            ? 'ring-4 ring-neon-cyan ring-offset-2 ring-offset-casino-dark -translate-y-6 z-20 shadow-neon-cyan'
+            : 'hover:-translate-y-3 hover:shadow-card-float hover:rotate-1 z-10'
           }
-            animate-deal-card
         `}
       >
         {/* Card Texture/Pattern */}
@@ -87,10 +86,9 @@ const PlayingCard: React.FC<PlayingCardProps> = ({
         {/* Inner Border for classic look */}
         <div className="absolute inset-x-[6%] inset-y-[4%] border border-slate-100 rounded-[6px] pointer-events-none" />
 
-        {/* Top Left Rank/Suit */}
-        <div className={`absolute top-1 left-1.5 flex flex-col items-center leading-none ${isRed ? 'text-card-red' : 'text-card-black'}`}>
-          <span className="font-bold text-[1.2em] font-serif tracking-tight">{card.rank}</span>
-          <span className="text-[0.8em]">{card.suit}</span>
+        {/* Top Left Rank */}
+        <div className={`absolute top-2 left-2 flex flex-col items-center leading-none ${isRed ? 'text-card-red' : 'text-card-black'}`}>
+          <span className="font-bold text-[1.4em] font-serif tracking-tight">{card.rank}</span>
         </div>
 
         {/* Center Suit */}
@@ -98,10 +96,9 @@ const PlayingCard: React.FC<PlayingCardProps> = ({
           {card.suit}
         </div>
 
-        {/* Bottom Right Rank/Suit (Rotated) */}
-        <div className={`absolute bottom-1 right-1.5 flex flex-col items-center leading-none transform rotate-180 ${isRed ? 'text-card-red' : 'text-card-black'}`}>
-          <span className="font-bold text-[1.2em] font-serif tracking-tight">{card.rank}</span>
-          <span className="text-[0.8em]">{card.suit}</span>
+        {/* Bottom Right Rank (Rotated) */}
+        <div className={`absolute bottom-2 right-2 flex flex-col items-center leading-none transform rotate-180 ${isRed ? 'text-card-red' : 'text-card-black'}`}>
+          <span className="font-bold text-[1.4em] font-serif tracking-tight">{card.rank}</span>
         </div>
 
         {/* Dynamic Shine effect */}
