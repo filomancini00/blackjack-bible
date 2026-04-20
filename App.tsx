@@ -8,6 +8,7 @@ import Logo from './components/Logo';
 import LegalDisclaimer from './components/LegalDisclaimer';
 import { getBasicStrategyAdvice } from './services/rulesService';
 import { RefreshCw, Zap, Shield, ChevronDown } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 
 const App: React.FC = () => {
   const [dealerCard, setDealerCard] = useState<Card | null>(null);
@@ -218,6 +219,7 @@ const App: React.FC = () => {
         onClose={() => setIsPickerOpen(false)}
         onSelect={handleSelectCard}
       />
+      <Analytics />
     </div>
   );
 };
