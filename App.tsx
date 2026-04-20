@@ -1,5 +1,6 @@
 // ... imports
 import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { Card, SelectionMode, AIAdvice } from './types';
 import PlayingCard from './components/PlayingCard';
 import CardPicker from './components/CardPicker';
@@ -218,6 +219,7 @@ const App: React.FC = () => {
         onClose={() => setIsPickerOpen(false)}
         onSelect={handleSelectCard}
       />
+      <Analytics />
     </div>
   );
 };
